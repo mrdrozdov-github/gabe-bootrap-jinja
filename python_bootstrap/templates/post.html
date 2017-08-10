@@ -1,0 +1,9 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<ul>
+{% for item in items %}
+    {% include 'list_item.html' %}
+{% endfor %}
+</ul>
+{% endblock %}
