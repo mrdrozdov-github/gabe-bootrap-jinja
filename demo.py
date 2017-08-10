@@ -7,18 +7,17 @@ env = Environment(
     # autoescape=select_autoescape(['html', 'xml'])
 )
 
-RUN_1 = False
-
 
 # Demo 1: Print a list.
-if RUN_1:
-    names = ['Gabe', 'Andrew']
-    demo_template_path = 'demo.html'
-    demo_template = env.get_template(demo_template_path)
-    demo_output = demo_template.render(names=names, best='Dexter')
-    soup = bs(demo_output, 'html.parser')
-    pretty_demo_output = soup.prettify()
-    print(pretty_demo_output)
+names = ['Gabe', 'Andrew']
+demo_template_path = 'demo.html'
+demo_template = env.get_template(demo_template_path)
+demo_output = demo_template.render(names=names, best='Dexter')
+soup = bs(demo_output, 'html.parser')
+pretty_demo_output = soup.prettify()
+
+with open('html/demo.html', 'w') as f:
+    f.write(pretty_demo_output)
 
 
 # Demo 2: Multiple pages that extend the same template.
